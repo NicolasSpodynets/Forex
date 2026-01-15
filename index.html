@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL | TRADING SYSTEMS ACCESS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --c: #00f3ff; --p: #bc13fe; --bg: #000; }
+        body { background: var(--bg); color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; overflow-x: hidden; }
+        
+        header { 
+            padding: 50px 20px; text-align: center; border-bottom: 2px solid var(--c); 
+            background: #000; box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+        }
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; margin: 0; letter-spacing: 5px; text-shadow: 0 0 15px var(--c); text-transform: uppercase; }
+
+        .container { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; padding: 40px; max-width: 1500px; margin: 0 auto; 
+        }
+
+        .card { 
+            background: #080808; border: 1px solid #1a1a1a; padding: 30px; 
+            display: flex; flex-direction: column; transition: 0.3s;
+            position: relative;
+        }
+        .card:hover { border-color: var(--c); box-shadow: 0 0 25px rgba(0, 243, 255, 0.15); transform: translateY(-5px); }
+
+        h2 { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--c); margin: 0 0 15px 0; text-transform: uppercase; }
+        ul { list-style: none; padding: 0; margin: 0 0 30px 0; flex-grow: 1; }
+        li { font-size: 0.9rem; color: #999; margin-bottom: 10px; border-left: 2px solid var(--p); padding-left: 12px; line-height: 1.4; }
+
+        .btn { 
+            background: transparent; border: 1px solid var(--c); color: var(--c); 
+            padding: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif; transition: 0.3s; letter-spacing: 2px;
+        }
+        .btn:hover { background: var(--c); color: #000; box-shadow: 0 0 25px var(--c); }
+
+        footer { text-align: center; padding: 40px; color: #222; font-size: 0.8rem; border-top: 1px solid #111; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SYSTEM TERMINAL</h1>
+</header>
+
+<main class="container" id="grid"></main>
+
+<footer>© 2026 TRADING ACCESS INTERFACE</footer>
+
+<script>
+    const products = [
+        {n:"CyberFX Signals", f:["Specialized for Gold & Majors", "Adaptive Trend Tracking", "Real-Time Signal Engine"], l:"aHR0cHM6Ly9qdnoMS5jb20vYy8zMjkxODk5LzQxNTAyMC8="},
+        {n:"Zenith Pulse Pro", f:["Proprietary Pulse Logic", "No-Repaint Entry Points", "M15/H1 Optimization"], l:"aHR0cHM6Ly9qdno5LmNvbS9jLzMyOTE4OTkvNDA3MDM5Lw=="},
+        {n:"Nukum Wave", f:["Advanced Wave Analysis", "Liquidity Zone Mapping", "Institutional SMC"], l:"aHR0cHM6Ly9qdno5LmNvbS9jLzMyOTE4OTkvNDA2MDAzLw=="},
+        {n:"NeuroSentra", f:["Neural Network Prediction", "Self-Learning Trading Logic", "High-Speed Processing"], l:"aHR0cHM6Ly9qdnoyLmNvbS9jLzMyOTE4OTkvNDE5NjczLw=="},
+        {n:"Lunarus Pro", f:["Lunar Cycle Price Correlation", "Volatility Breakout Tech", "Precision Market Timing"], l:"aHR0cHM6Ly9qdno3LmNvbS9jLzMyOTE4OTkvNDE2Njk5Lw=="},
+        {n:"STGFX Advanced", f:["Advanced Trend Filtering", "Professional Risk Suite", "Multi-Trend Logic"], l:"aHR0cHM6Ly9qdnoyLmNvbS9jLzMyOTE4OTkvMjE4NTAv"},
+        {n:"Forex Probe", f:["Deep Market Scanning", "Hidden Divergence Recognition", "Multi-Currency Hub"], l:"aHR0cHM6Ly9qdno3LmNvbS9jLzMyOTE4OTkvNDA5MTA1Lw=="},
+        {n:"MPX Zones MT4", f:["Automatic Supply & Demand", "Real-Time Order Flow", "Bank Zone Detection"], l:"aHR0cHM6Ly9qdno2LmNvbS9jLzMyOTE4OTkvMTY3Mzgv"},
+        {n:"Market Balance", f:["Price Equilibrium Analysis", "Volume Profile Logic", "Daily Bias Tool"], l:"aHR0cHM6Ly9qdnoMS5jb20vYy8zMjkxODk5LzU0NTUxLw=="},
+        {n:"Forex Legion", f:["Aggressive Scalping EA", "Low Drawdown Control", "Session Optimization"], l:"aHR0cHM6Ly9qdno3LmNvbS9jLzMyOTE4OTkvNDEyMDE5Lw=="},
+        {n:"Hex Algo MT4", f:["6-Way Data Verification", "Instant Alert System", "Zero-Lag Performance"], l:"aHR0cHM6Ly9qdnozLmNvbS9jLzMyOTE4OTkvMzQyNjMv"},
+        {n:"Block Trader", f:["Order Block Master", "FVG Detection Engine", "Smart Money Concepts"], l:"aHR0cHM6Ly9qdno4LmNvbS9jLzMyOTE4OTkvNTM3Nzcv"},
+        {n:"4D Trader Strategy", f:["Time/Price Matrix Logic", "Geometric Market Analysis", "Cross-Timeframe Sync"], l:"aHR0cHM6Ly9qdnozLmNvbS9jLzMyOTE4OTkvNzAzMzMv"},
+        {n:"Flux Nebula", f:["Momentum Nebula Filter", "Dynamic Flow Tracking", "Fast Recovery Mode"], l:"aHR0cHM6Ly9qdnoMS5jb20vYy8zMjkxODk5LzQwMzQxNy8="},
+        {n:"Dux Forex VIP", f:["Institutional Grade Feed", "Elite Market Reports", "Direct VIP Access"], l:"aHR0cHM6Ly9qdno4LmNvbS9jLzMyOTE4OTkvNDE3Mjc1Lw=="}
+    ];
+
+    const grid = document.getElementById('grid');
+
+    function openLink(b64) {
+        window.open(atob(b64), '_blank', 'noopener,noreferrer');
+    }
+
+    products.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `
+            <h2>${p.n}</h2>
+            <ul>${p.f.map(item => `<li>${item}</li>`).join('')}</ul>
+            <button class="btn" onclick="openLink('${p.l}')">Activate Access</button>
+        `;
+        grid.appendChild(div);
+    });
+</script>
+
+</body>
+</html>
